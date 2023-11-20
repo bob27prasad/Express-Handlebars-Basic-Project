@@ -13,3 +13,6 @@
         }
  5. npm install express-handlebars --S
  6. npm run dev (to run the file)
+
+
+to get the home page add /home in the url
