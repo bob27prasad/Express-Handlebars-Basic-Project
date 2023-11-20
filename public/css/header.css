@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    transition: 0.6s;
+}
+
+:root {
+    --color1: #fff;
+    --color2: #000;
+    --font-size-1rem: 1rem;
+    --font-size-2rem: 2rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 100px;
+    z-index: 100;
+    border-radius: 0 0 9px 9px;
+    background: transparent;
+    transition: 0.6s;
+}
+
+.navbar.sticky {
+    padding: 10px 100px;
+    background-color: #ffffffd7;
+}
+
+.navbar .logo {
+    position: relative;
+    color: var(--color1);
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: -1.5px;
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 2em;
+    transition: 0.6s;
+    text-shadow: 4px 4px 10px #000;
+}
+
+.navbar.sticky .logo {
+    color: var(--color2);
+    text-shadow: 4px 4px 50px #000;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .nav-links ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.navbar .nav-links ul li {
+    list-style: none;
+}
+
+.navbar .nav-links ul li a {
+    position: relative;
+    color: var(--color1);
+    margin: 0 15px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: 0.6s;
+}
+
+.navbar.sticky .nav-links ul li a{
+    color: var(--color2);
+}
+
+.navbar .nav-links .backHomebtn {
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 18px;
+    margin-left: 15px;
+    color: #fff;
+    background-color: transparent;
+    width: 105px;
+    transition: scale 0.3s ease;
+    text-align: center;
+    border: 2px solid #fff;
+}
+
+.navbar.sticky .nav-links .backHomebtn {
+    border: 2px solid #000;
+}
+
+.navbar .nav-links .backHomebtn:hover {
+    background-color: blue;
+    border: none;
+}
+
+.navbar .nav-links .backHomebtn:active {
+    scale: 0.9;
+}
+
+.navbar .nav-links ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    height: 3px;
+    width: 100%;
+    background: var(--color1);
+    border-radius: 50px;
+    transform: scaleX(0);
+    transition: transform 0.2s linear;
+}
+
+.navbar .nav-links ul li:not(.backHomebtn) a:hover::before {
+    transform: scaleX(1);
+}
+
+.navbar.sticky .nav-links ul li a::before {
+    background: var(--color2);
+}
+
+.navbar .nav-links .getStarted {
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 18px;
+    margin-left: 15px;
+    color: #fff;
+    background-color: blue;
+    width: fit-content;
+    transition: scale 0.3s ease;
+    text-align: center;
+}
+
+.navbar .nav-links .getStarted:hover {
+    background-color: transparent;
+    color: var(--color1);
+    border: 2px solid var(--color1);
+}
+
+.navbar .nav-links .getStarted:active {
+    scale: 0.9;
+}
+
+.navbar.sticky .nav-links .getStarted:hover {
+    color: var(--color2);
+    border: 2px solid var(--color2);
+}
+
+/*---For bars---*/
+.bars {
+    max-height: 35px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: 0.1s;
+    display: none;
+}
+
+.bars ul {
+    list-style: none;
+}
+
+.bar {
+    background-color: var(--color1);
+    margin: 5px 0;
+    border-radius: 50px;
+    height: 3px;
+    width: 100%;
+}
+
+.navbar.sticky .bar {
+    background-color: var(--color2);
+}
+
+.xmark .bar.one {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.xmark .bar.two {
+    opacity: 0;
+}
+
+.xmark .bar.three {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/*---for dropdown navbar---*/
+.dropdown-navbar {
+    position: absolute;
+    display: none;
+    height: 0;
+    width: 300px;
+    top: 90px;
+    right: 2rem;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.177);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+    transition: height 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-navbar.open {
+    height: 270px;
+    position: fixed;
+}
+
+.dropdown-navbar ul li a {
+    padding: 0.7rem;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--color1);
+    text-shadow: 4px 4px 20px #000;
+}
+
+.dropdown-navbar ul li a:hover:not(.getStarted) {
+    color: blue;
+    font-weight: 700;
+}
+
+.dropdown-navbar .getStarted {
+    font-size: 0.9em;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 10px;
+    width: 100%;
+    border-radius: 18px;
+    margin: 15px auto;
+    color: #fff;
+    background-color: blue;
+    width: 80%;
+    transition: none;
+}
+
+.dropdown-navbar .getStarted:active {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+}
+
+
+/*---navbar media queries---*/
+@media (max-width: 950px) {
+    .navbar {
+        padding: 25px 60px;
+    }
+
+    .navbar.sticky {
+        padding: 15px 60px;
+    }
+
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .navbar .bars {
+        display: block;
+    }
+
+
+    .dropdown-navbar {
+        display: block;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .navbar {
+        padding: 20px 40px;
+    }
+
+    .navbar.sticky {
+        padding: 10px 40px;
+    }
+
+    .dropdown-navbar {
+        left: 2rem;
+        width: unset;
+    }
+}
